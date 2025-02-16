@@ -1,0 +1,24 @@
+[
+	"Folder",
+	"We need to select a working folder,\nwhere everything will be temporarily kept",
+	["issue","first response","second response","third response"],
+	"Hint",
+	" (audible) for scenario number ",
+	" (text) for scenario number ",
+	" for scenario number ",
+	"image",
+	"Data keeping",
+	"Would you like to keep data of each session?",
+	"Please enter participant name\\number",
+	"Number of Scenarios",
+	"How many senarios are in this activity?"
+	"Issue Videos",
+	"Now we will need to collect all relevant files.\nFirst will be the videos for all scenarios\nin the folowing order:\nIssue video,First, Second and Third response videos",
+	"video for ",
+	"A representative image for ",
+	"Hints",
+	"Now we will need the audio as well as the text files\ncontaining the hints for the participants.\nFor each scenario: an audio file and then a text file.",
+	"hint",
+	"Final location",
+	"All we need now is to pack everything into a disk image file.\n Please select a location in which it will be placed."
+]
