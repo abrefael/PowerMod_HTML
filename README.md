@@ -22,7 +22,7 @@
 
 # Translate
  In `languages` folder there are translation files for different languages.
- To have the PowerMod_HTML builder in your lageuage, Please do the following:
+ To have the PowerMod_HTML builder in your lageuage, please do the following:
  1. Create a `.json` file with your language name (in your language) (see `עברית.json` as an example for the Hebrew translation).
  2. Copy the content of the `English.jason_tamplate` and translate each row to your language.
 
