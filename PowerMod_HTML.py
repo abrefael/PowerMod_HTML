@@ -26,7 +26,7 @@ What laguage will you be using\n'''
 		n = select_lang()
 	return open(os.path.join(d,languages[n-1]),'r').read()
 
-dictionary = eval(select_lang())
+#dictionary = eval(select_lang())
 
 
 msg = '''
