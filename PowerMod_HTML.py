@@ -181,7 +181,7 @@ function getNow() {
 if res == 'yes' :
 	content = content.replace('//console.save(text', 'console.save(text')
 d = os.path.join(d, 'app.js')
-with open(d, 'w') as file:
+with open(d, 'w',encoding="utf-8") as file:
 		file.write(content)
 
 N = simpledialog.askinteger(title="מספר תרחישים", prompt="?כמה תרחישים יש בפעילות")
