@@ -66,7 +66,7 @@ def file_collector(i, type):
 				write_to = os.path.join(dest_dir, "vid\\")
 				filetypes =[('Video Files', '*.mp4 *.webm *.3gp *.ogg')]
 				title = type + str_arr[j] + ' עבור תרחיש מספר ' + str(i)
-				file = filedialog.askopenfile(parent=ROOT,mode='rb',title=title)
+				file = filedialog.askopenfile(parent=ROOT,mode='rb',title=title, filetypes=filetypes)
 				fname = file.name
 			shutil.copy(fname, write_to)
 			files.append(fname.split('/')[-1])
