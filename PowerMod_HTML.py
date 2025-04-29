@@ -48,14 +48,14 @@ def file_collector(i, type):
 		fname = file.name
 		suff = fname.split('.')[-1]
 		shutil.copy(fname, os.path.join(dest_dir, "hint", "hint" + str(i) + '.' + suff))
-		files = [suff]
+		files = suff
 	elif type == 'רמז':
 		file = filedialog.askopenfile(parent=ROOT,mode='rb',title=type + ' כתוב עבור תרחיש מספר ' + str(i), filetypes =[('Text File', '*.txt')])
 		lines = file.read()
 		hint = lines.decode()
 		hint = hint.replace('\r\n','<br>')
 		hint = hint.replace('\n','<br>')
-		files.append(hint)
+		files = hint
 	else:
 		files = []
 		for j in range(4):
