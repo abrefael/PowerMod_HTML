@@ -65,13 +65,10 @@ def file_collector(i, type):
 			else:
 				write_to = os.path.join(dest_dir, "vid\\")
 				filetypes =[('Video Files', '*.mp4 *.webm *.3gp *.ogg')]
-			title = type + str_arr[j] + ' עבור תרחיש מספר ' + str(i)
-			file = filedialog.askopenfile(parent=ROOT,mode='rb',title=title)
-			fname = file.name
-			
-				shutil.copy(fname, )
-			else:
-				shutil.copy(fname, os.path.join(dest_dir, "vid\\"))
+				title = type + str_arr[j] + ' עבור תרחיש מספר ' + str(i)
+				file = filedialog.askopenfile(parent=ROOT,mode='rb',title=title)
+				fname = file.name
+			shutil.copy(fname, write_to)
 			files.append(fname.split('/')[-1])
 	return files
 
@@ -93,19 +90,19 @@ var filename;
 function get_participant_num(){
 	text = prompt("אנא הכניסו שם/מספר משתתף");
 	filename = text + '.csv';
-	text += ',' + get_the_date() + '\r\n';
+	text += ',' + get_the_date() + '\\r\\n';
 }
 
 function next_page(q_or_a){
 	answers=[];
 	document.getElementById('page_' + q + q_or_a).remove();
-	text += getNow() + ',clicked next screen\r\n';
+	text += getNow() + ',clicked next screen\\r\\n';
 	if (q_or_a == 'a') {
 		if (q < N){
 			q_or_a = 'q';
 		}
 		else{
-			text +=  getNow() + ',completed\r\n';
+			text += getNow() + ',completed\\r\\n';
 			console.log(text);
 			//console.save(text,filename);
 			location.replace('done/Done.html');
@@ -123,7 +120,7 @@ function choose_answer(elem){
 		images[i].style.borderColor = "#000000";
 	}
 	elem.style.borderColor = "#ff0000";
-	text += getNow() + ',' + elem.id + "selected\r\n";
+	text += getNow() + ',' + elem.id + "selected\\r\\n";
 	document.getElementById("check" + q).style.display = 'block';
 }
 
@@ -156,7 +153,7 @@ function get_the_date(){
 
 		a.download = filename
 		a.href = window.URL.createObjectURL(blob)
-		a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
+		a.dataset.downloadurl = ['text/json', a.download, a.href].join(':')
 		e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
 		a.dispatchEvent(e)
 
