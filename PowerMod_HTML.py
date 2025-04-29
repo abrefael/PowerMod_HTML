@@ -43,13 +43,14 @@ def cpit(d):
 
 def file_collector(i, type):
 	str_arr = ['בעיה', 'תגובה ראשונה', 'תגובה שנייה','תגובה שלישית']
-	if type == 'רמז':
-		file = filedialog.askopenfile(parent=ROOT,mode='rb',title=type + ' קולי עבור תרחיש מספר ' + str(i))
+	if type == 'רמז קולי':
+		file = filedialog.askopenfile(parent=ROOT,mode='rb',title=type + ' עבור תרחיש מספר ' + str(i), filetypes =[('Audio Files', '*.mp3 *.opus *.ogg *.aac *.flac')])
 		fname = file.name
 		suff = fname.split('.')[-1]
 		shutil.copy(fname, os.path.join(dest_dir, "hint", "hint" + str(i) + '.' + suff))
 		files = [suff]
-		file = filedialog.askopenfile(parent=ROOT,mode='rb',title=type + ' כתוב עבור תרחיש מספר ' + str(i))
+	elif type == 'רמז':
+		file = filedialog.askopenfile(parent=ROOT,mode='rb',title=type + ' כתוב עבור תרחיש מספר ' + str(i), filetypes =[('Text File', '*.txt')])
 		lines = file.read()
 		hint = lines.decode()
 		hint = hint.replace('\r\n','<br>')
@@ -58,11 +59,17 @@ def file_collector(i, type):
 	else:
 		files = []
 		for j in range(4):
+			if 'תמונה' in type:
+				write_to = os.path.join(dest_dir, "img\\")
+				filetypes =[('Image Files', '*.png *.jpg *.jpeg *.gif *.webp *.bmp')]
+			else:
+				write_to = os.path.join(dest_dir, "vid\\")
+				filetypes =[('Video Files', '*.mp4 *.webm *.3gp *.ogg')]
 			title = type + str_arr[j] + ' עבור תרחיש מספר ' + str(i)
 			file = filedialog.askopenfile(parent=ROOT,mode='rb',title=title)
 			fname = file.name
-			if 'תמונה' in type:
-				shutil.copy(fname, os.path.join(dest_dir, "img\\"))
+			
+				shutil.copy(fname, )
 			else:
 				shutil.copy(fname, os.path.join(dest_dir, "vid\\"))
 			files.append(fname.split('/')[-1])
@@ -230,14 +237,19 @@ for i in range(N):
 
 
 msg = '''
-לבסוף נבחר את קבצי השמע המוקלטים עם רמז עבור המשתתפים
-וכן את קבצי הטקסט המכילים את הרמזים עבור המשתתפים
-עבור כל תרחיש, קובץ שמע ואז קובץ טקסט
+עכשיו נבחר את קבצי השמע המוקלטים עם רמז למשתתפים
+עבור כל תרחיש
+'''
+messagebox.showinfo(title='רמזים', message=msg)
+for i in range(N):
+	hints.append(file_collector(i+1,'רמז קולי'))
+
+msg = '''
+ונסיים בבחירת קבצי הטקטס עם רמז למשתתפים עבור כל תרחיש
 '''
 messagebox.showinfo(title='רמזים', message=msg)
 for i in range(N):
 	hints.append(file_collector(i+1,'רמז'))
-
 
 vids_txt=''
 for i in range(N):
@@ -245,7 +257,7 @@ for i in range(N):
 				<div id="Modal_hint{str(i+1):s}" class="hint_modal">
 				<div class="modal-content">
 					<span class="close">&times;</span>
-					<p>{hints[i][1]:s}</p>
+					<p>{hints[i+N]:s}</p>
 				</div>
 			</div>
 			<div id="Q{str(i+1):s}_video" class="modal">
@@ -501,7 +513,7 @@ for i in range(N):
 		</div>
 		<div class="container">
 			<div class="up">
-				<img src="img/hint.png" id="hint{str(i+1):s}" filetype=".{hints[i][0]:s}" class="show_hint"/>
+				<img src="img/hint.png" id="hint{str(i+1):s}" filetype=".{hints[i]:s}" class="show_hint"/>
 				<img src="img/{pics[i][0]:s}" id="Q{str(i+1):s}a" class="Q_img"/>
 				<svg
 					viewBox="0 0 21.166666 21.166667" style="height: 33vh;display:none" class="next_page" id="check{str(i+1):s}">
