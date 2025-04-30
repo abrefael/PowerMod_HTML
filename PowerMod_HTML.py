@@ -649,7 +649,11 @@ msg = '''
 נותר לנו לארוז את הכל לקובץ תמונת דיסק
 אנא בחרו את מיקום הקובץ
 '''
-messagebox.showinfo(title='מיקום סופי', message=msg)
-output = filedialog.askdirectory()
-output = os.path.join(output.replace('/','\\'),'PowerMod.iso')
-os.popen('"' + os.path.join(cwd, 'tools', 'mkisofs.exe"') + ' -udf -o "' + output + '" "' + dest_dir + '"')
+msg = '''
+סיימנו! :-)
+כל הכבוד לכם.ן
+'''
+messagebox.showinfo(title='סוף', message=msg)
+#output = filedialog.askdirectory()
+#output = os.path.join(output.replace('/','\\'),'PowerMod.iso')
+#os.popen('"' + os.path.join(cwd, 'tools', 'mkisofs.exe"') + ' -udf -o "' + output + '" "' + dest_dir + '"')
