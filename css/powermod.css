@@ -160,6 +160,8 @@
 		width: 100%;
 		height: 100%;
 		overflow: auto;
+		color: black;
+		font-size: xx-large;
 		background-color: rgba(0,0,0,0.4);
 	}
 	.hint_modal > .modal-content {
