@@ -259,14 +259,14 @@ for i in range(N):
 			</div>
 			<div id="Q{str(i+1):s}_video" class="modal">
 				<div class="modal-content">
-					<video>
+					<video controls>
 						<source src="vid/{vids[i][0]:s}" type="video/mp4">
 					</video>
 				</div>
 			</div>
 			<div id="A{str(i+1):s}_1_video" class="modal">
 				<div class="modal-content">
-					<video>
+					<video controls>
 						<source src="vid/{vids[i][1]:s}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">
@@ -280,7 +280,7 @@ for i in range(N):
 			</div>
 			<div id="A{str(i+1):s}_2_video" class="modal">
 				<div class="modal-content">
-					<video>
+					<video controls>
 						<source src="vid/{vids[i][2]:s}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">
@@ -295,7 +295,7 @@ for i in range(N):
 			</div>
 			<div id="A{str(i+1):s}_3_video" class="modal">
 				<div class="modal-content">
-					<video>
+					<video controls>
 						<source src="vid/{vids[i][3]:s}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">
