@@ -83,7 +83,7 @@ cpit('css')
 cpit('img')
 cpit('vid')
 cpit('hint')
-cpit('done')
+#cpit('done')
 res = messagebox.askquestion('שמירת נתונים', '?האם תרצו לשמור נתונים מכל מפגש')
 d = os.path.join(dest_dir, "scripts")
 if not os.path.exists(d):
@@ -186,6 +186,53 @@ if res == 'yes' :
 d = os.path.join(d, 'app.js')
 with open(d, 'w',encoding="utf-8") as file:
 		file.write(content)
+
+d = os.path.join(dest_dir, "done")
+if not os.path.exists(d):
+	os.makedirs(d)
+content = f'''
+<!DOCTYPE html>
+<html lang="he" id="shvitzer" class="no_js">
+<head>
+	<meta charset="utf-8" />
+	<meta property="og:locale" content="he_IL" />
+	<style>
+	.middle {{
+  border-radius:5px;
+  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}}
+.center {{
+  border: 5px solid;
+  border-radius:20px;
+  margin: auto;
+  width: 30%;
+  height:50%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translate(100%, -50%);
+}}
+	</style>
+	</head>
+	<body>
+		<div class="middle" style="font-size:30px;">נגמר, תודה רבה</div>
+		<div class="center"><br><br><br>
+			<div class="selector" style="font-size:300px;text-align:center">&#128591;</div>
+		</div>
+	</body>
+</html>
+'''
+
+d = os.path.join(d, 'Done.html')
+with open(d, 'w',encoding="utf-8") as file:
+		file.write(content)
+
+
 
 N = simpledialog.askinteger(title="מספר תרחישים", prompt="?כמה תרחישים יש בפעילות")
 content = f'''
