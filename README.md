@@ -31,7 +31,7 @@
 
 
  Note: wherever you want a new line in a long text, there should be a `\n` (represents a new line) and in order to have a `\` in a text (e.g.: "Please enter participant name\\number"), make sure to have a double backslash (i.e.: `\\`).
- 
+
 
 
 **Pro tip:**
