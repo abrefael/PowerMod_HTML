@@ -29,11 +29,13 @@
  1. Create a `.json` file with your language name (in your language) (see `עברית.json` as an example for the Hebrew translation).
  2. Copy the content of the `English.jason_tamplate` and translate each row to your language.
 
-**Pro tip:**
-if you start the script using:
-`python PowerMod_HTML.py *YOURLANGUAGE WRITEN IN YOUR LANGUAGE*` (e.g.: `python PowerMod_HTML.py русский`)
-You will not need to select a language... ;-)
 
  Note: wherever you want a new line in a long text, there should be a `\n` (represents a new line) and in order to have a `\` in a text (e.g.: "Please enter participant name\\number"), make sure to have a double backslash (i.e.: `\\`).
  
 
+
+**Pro tip:**
+
+if you start the script using:
+`python PowerMod_HTML.py *YOURLANGUAGE WRITEN IN YOUR LANGUAGE*` (e.g.: `python PowerMod_HTML.py русский`)
+You will not need to select a language during runtime. ;-)
