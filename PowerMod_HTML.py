@@ -5,6 +5,7 @@ import os
 from tkinter import messagebox
 import shutil
 import glob
+import sys
 cwd = os.path.dirname(os.path.realpath(__file__))
 d = os.path.join(cwd, 'languages')
 languages = glob.glob1(d,"*.json")
@@ -13,18 +14,23 @@ ROOT = tk.Tk()
 ROOT.withdraw()
 
 def select_lang():
-	msg = f'''
+	args = sys.argv
+	if len(args) > 1:
+		lang = args[1]
+	else:
+		msg = f'''
 What laguage will you be using\n'''
-	for i in range(len(languages)):
-		msg += f'''
-			{i+1}\t{languages[i].split('.')[0]}\n
-		'''
-	msg += 'Enter a number:'
-	n = int(simpledialog.askinteger(title="Language", prompt=msg))
-	if n > len(languages) or n < 1:
-		messagebox.showinfo(title='Oops...', message='Wrong number')
-		n = select_lang()
-	return open(os.path.join(d,languages[n-1]),'r').read()
+		for i in range(len(languages)):
+			msg += f'''
+{i+1}\t{languages[i].split('.')[0]}\n
+			'''
+		msg += 'Enter a number:'
+		n = int(simpledialog.askinteger(title="Language", prompt=msg))
+		if n > len(languages) or n < 1:
+			messagebox.showinfo(title='Oops...', message='Wrong number')
+			n = select_lang()
+		lang = languages[n-1]
+	return open(os.path.join(d, lang),'r').read()
 
 #dictionary = eval(select_lang())
 
