@@ -15,6 +15,7 @@ ROOT.withdraw()
 
 def select_lang():
 	args = sys.argv
+	args.append('עברית')
 	if len(args) > 1:
 		lang = args[1] + '.json'
 	else:
@@ -32,7 +33,7 @@ What laguage will you be using\n'''
 		lang = languages[n-1]
 	return open(os.path.join(d, lang),'r').read()
 
-#dictionary = eval(select_lang())
+dictionary = eval(select_lang())
 
 
 msg = '''
