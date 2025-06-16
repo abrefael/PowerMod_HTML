@@ -16,7 +16,7 @@ ROOT.withdraw()
 def select_lang():
 	args = sys.argv
 	if len(args) > 1:
-		lang = args[1]
+		lang = args[1] + '.json'
 	else:
 		msg = f'''
 What laguage will you be using\n'''
