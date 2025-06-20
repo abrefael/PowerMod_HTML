@@ -1,0 +1,213 @@
+		<div id="page_{str(i+1)}q" class="q_page" style="display:none">
+		<div class="overlay">
+			<div class="icons">
+				<svg viewBox="0 0 7.9374998 7.9375">
+					<path
+						 style="fill:#0000ff"
+						 d="M 3.974425,5.4320933 0.36552733,3.4615504 -3.2433701,1.4910075 0.267619,-0.64911804 3.7786079,-2.7892435 3.8765164,1.3214251 Z"
+						 transform="matrix(0.84701854,-0.53429998,0.46278965,0.97789998,2.0571718,4.7465113)" />
+				</svg>
+				<svg viewBox="0 0 7.9374998 7.9375">
+					<circle
+						 style="fill:#00ff00"
+						 cx="3.96875"
+						 cy="3.96875"
+						 r="3.96875" />
+				</svg>
+				<svg viewBox="0 0 7.9374998 7.9375">
+					<rect
+						 style="fill:#aa4acf;fill-opacity:1"
+						 width="7.9375"
+						 height="7.9375"
+						 x="-2.220446e-16"
+						 y="0" />
+				</svg>
+			</div>
+		</div>
+		<div class="container">
+			<div class="up">
+				<div></div>
+				<img src="img/{pics[i][0]}" id="Q{str(i+1)}q" class="Q_img" />
+				<div id="next_q_1"></div>
+			</div>
+			<div class="ans">
+				<div>
+					<img src="img/{pics[i][1]}" id="A{str(i+1)}_1q" class="Q_img" />
+				</div>
+				<div>
+					<img src="img/{pics[i][2]}" id="A{str(i+1)}_2q" class="Q_img"/>
+				</div>
+				<div>
+					<img src="img/{pics[i][3]}" id="A{str(i+1)}_3q" class="Q_img"/>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="page_{str(i+1)}a" style="display:none" class="a_page">
+		<div class="overlay">
+			<div class="icons">
+			<div>
+				<svg viewBox="0 0 7.9374998 7.9375">
+					<path
+						 style="fill:#0000ff"
+						 d="M 3.974425,5.4320933 0.36552733,3.4615504 -3.2433701,1.4910075 0.267619,-0.64911804 3.7786079,-2.7892435 3.8765164,1.3214251 Z"
+						 transform="matrix(0.84701854,-0.53429998,0.46278965,0.97789998,2.0571718,4.7465113)" />
+				</svg>
+				<svg
+					id="A{str(i+1)}_1a"
+					class="movie_svg Q_img"
+					viewBox="0 0 7.9374998 7.9375" >
+					<defs>
+						<marker
+							style="overflow:visible"
+							id="Triangle"
+							refX="0"
+							refY="0"
+							orient="auto-start-reverse"
+							markerWidth="0.7"
+							markerHeight="0.7"
+							viewBox="0 0 1 1"
+							preserveAspectRatio="xMidYMid">
+						<path
+							transform="scale(0.5)"
+							style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+							d="M 5.77,0 -2.88,5 V -5 Z" />
+						</marker>
+					</defs>
+					<rect
+						style="fill:#813ab8;fill-opacity:1;stroke:#ffffff;stroke-width:0.126993;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+						width="6.1746221"
+						height="3.7379994"
+						x="0.17065275"
+						y="1.9866134" />
+					<path
+							style="fill:#813ab8;fill-opacity:1;stroke:#ffffff;stroke-width:0.0877679;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+							d="m 7.8305192,2.6029177 -1.3970774,0.556089 v 0.696878 0.6963345 l 1.3970774,0.556089 V 3.8558847 Z" />
+					<path
+							style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0998443;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+							d="M 3.9233267,3.8556131 3.3672417,4.1766687 2.8111572,4.4977242 V 3.8556131 3.2135018 l 0.5560845,0.3210553 z" />
+					<path
+							style="fill:none;stroke:#ffffff;stroke-width:0.194209;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#Triangle)"
+							d="m 3.931821,2.8142219 c 0.3788666,0.2198439 0.6322004,0.6194669 0.6322004,1.0759834 0,0.6935727 -0.584742,1.2558247 -1.3060577,1.2558247 -0.7213157,0 -1.3060576,-0.562252 -1.3060576,-1.2558247 0,-0.5957297 0.4313983,-1.0945761 1.010199,-1.2234662 0.095063,-0.021168 0.1941017,-0.03236 0.2958586,-0.03236" />
+				</svg>
+				</div>
+				<div>
+				<svg viewBox="0 0 7.9374998 7.9375">
+					<circle
+						 style="fill:#00ff00"
+						 cx="3.96875"
+						 cy="3.96875"
+						 r="3.96875" />
+				</svg>
+				<svg
+					id="A{str(i+1)}_2a"
+					class="movie_svg Q_img"
+					viewBox="0 0 7.9374998 7.9375" >
+					<defs>
+						<marker
+							style="overflow:visible"
+							id="Triangle"
+							refX="0"
+							refY="0"
+							orient="auto-start-reverse"
+							markerWidth="0.7"
+							markerHeight="0.7"
+							viewBox="0 0 1 1"
+							preserveAspectRatio="xMidYMid">
+						<path
+							transform="scale(0.5)"
+							style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+							d="M 5.77,0 -2.88,5 V -5 Z" />
+						</marker>
+					</defs>
+					<rect
+						style="fill:#813ab8;fill-opacity:1;stroke:#ffffff;stroke-width:0.126993;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+						width="6.1746221"
+						height="3.7379994"
+						x="0.17065275"
+						y="1.9866134" />
+					<path
+							style="fill:#813ab8;fill-opacity:1;stroke:#ffffff;stroke-width:0.0877679;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+							d="m 7.8305192,2.6029177 -1.3970774,0.556089 v 0.696878 0.6963345 l 1.3970774,0.556089 V 3.8558847 Z" />
+					<path
+							style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0998443;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+							d="M 3.9233267,3.8556131 3.3672417,4.1766687 2.8111572,4.4977242 V 3.8556131 3.2135018 l 0.5560845,0.3210553 z" />
+					<path
+							style="fill:none;stroke:#ffffff;stroke-width:0.194209;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#Triangle)"
+							d="m 3.931821,2.8142219 c 0.3788666,0.2198439 0.6322004,0.6194669 0.6322004,1.0759834 0,0.6935727 -0.584742,1.2558247 -1.3060577,1.2558247 -0.7213157,0 -1.3060576,-0.562252 -1.3060576,-1.2558247 0,-0.5957297 0.4313983,-1.0945761 1.010199,-1.2234662 0.095063,-0.021168 0.1941017,-0.03236 0.2958586,-0.03236" />
+				</svg>
+				</div>
+				<div>
+				<svg viewBox="0 0 7.9374998 7.9375">
+					<rect
+						 style="fill:#aa4acf;fill-opacity:1"
+						 width="7.9375"
+						 height="7.9375"
+						 x="-2.220446e-16"
+						 y="0" />
+				</svg>
+				<svg
+					id="A{str(i+1)}_3a" 
+					class="movie_svg Q_img"
+					viewBox="0 0 7.9374998 7.9375" >
+					<defs>
+						<marker
+							style="overflow:visible"
+							id="Triangle"
+							refX="0"
+							refY="0"
+							orient="auto-start-reverse"
+							markerWidth="0.7"
+							markerHeight="0.7"
+							viewBox="0 0 1 1"
+							preserveAspectRatio="xMidYMid">
+						<path
+							transform="scale(0.5)"
+							style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+							d="M 5.77,0 -2.88,5 V -5 Z" />
+						</marker>
+					</defs>
+					<rect
+						style="fill:#813ab8;fill-opacity:1;stroke:#ffffff;stroke-width:0.126993;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+						width="6.1746221"
+						height="3.7379994"
+						x="0.17065275"
+						y="1.9866134" />
+					<path
+							style="fill:#813ab8;fill-opacity:1;stroke:#ffffff;stroke-width:0.0877679;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+							d="m 7.8305192,2.6029177 -1.3970774,0.556089 v 0.696878 0.6963345 l 1.3970774,0.556089 V 3.8558847 Z" />
+					<path
+							style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0998443;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+							d="M 3.9233267,3.8556131 3.3672417,4.1766687 2.8111572,4.4977242 V 3.8556131 3.2135018 l 0.5560845,0.3210553 z" />
+					<path
+							style="fill:none;stroke:#ffffff;stroke-width:0.194209;stroke-linejoin:round;stroke-dasharray:none;marker-start:url(#Triangle)"
+							d="m 3.931821,2.8142219 c 0.3788666,0.2198439 0.6322004,0.6194669 0.6322004,1.0759834 0,0.6935727 -0.584742,1.2558247 -1.3060577,1.2558247 -0.7213157,0 -1.3060576,-0.562252 -1.3060576,-1.2558247 0,-0.5957297 0.4313983,-1.0945761 1.010199,-1.2234662 0.095063,-0.021168 0.1941017,-0.03236 0.2958586,-0.03236" />
+				</svg>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="up">
+				<img src="img/hint.png" id="hint{str(i+1)}" class="show_hint"/>
+				<img src="img/{pics[i][0]}" id="Q{str(i+1)}a" class="Q_img"/>
+				<svg
+					viewBox="0 0 21.166666 21.166667" style="height: 33vh;display:none" class="next_page" id="check{str(i+1)}">
+					<path
+						style="font-size:22.5778px;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';fill:#ffffff;stroke:#ffffff;stroke-width:1.124;stroke-linejoin:round"
+						d="M 17.988825,19.117525 H 2.3875644 V 3.5162648 H 17.988825 Z m -0.72249,-0.72249 V 4.2387544 H 3.1100541 V 18.395035 Z M 5.0065893,13.179564 q 0,-0.383823 0.5644451,-0.699912 0.5870228,-0.31609 0.9256898,-0.31609 0.2483558,0 0.564445,0.880535 0.3160892,0.857956 0.4967116,0.857956 0.112889,0 0.3838226,-0.451556 1.2417791,-2.099735 2.6190246,-4.0414262 1.377246,-1.9642687 2.235203,-2.7319139 0.790223,-0.7224896 2.438402,-0.7224896 v 0.2483558 q -1.919113,2.032002 -3.476981,4.1994709 -1.535291,2.144891 -2.2352025,3.409248 -0.677334,1.241779 -1.3546681,2.05458 -0.6547562,0.812801 -1.2643568,0.812801 -0.4967116,0 -0.903112,-0.51929 Q 5.61619,15.640544 5.4129897,14.96321 5.2097895,14.285876 5.0969005,13.789164 q -0.090311,-0.496711 -0.090311,-0.6096 z"
+						aria-label="checkmark" />
+				</svg>
+			</div>
+			<div class="ans">
+				<div>
+					<img src="img/{pics[i][1]}" id="image_A{str(i+1)}_1" class="choose_answer"/>
+				</div>
+				<div>
+					<img src="img/{pics[i][2]}" id="image_A{str(i+1)}_2" class="choose_answer"/>
+				</div>
+				<div>
+					<img src="img/{pics[i][3]}" id="image_A{str(i+1)}_3" class="choose_answer"/>
+				</div>
+			</div>
+		</div>
+		</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<script src="scripts/app.js"></script>
+	<script>const N = {(N)};</script>
+	<link rel="stylesheet" type="text/css" href="css/powermod.css">
+	<title>PowerMod HTML</title>
+	</head>
+	<body onload="get_participant_num()" onclick="text += getNow() + ',wrong click\\r\\n'">
+		<div id="page_0a">
+			<svg
+			 style="max-height: 98vh;"
+			 viewBox="0 0 21.166666 21.166667">
+				<path
+				 style="fill:none;stroke:#00ff00;stroke-width:1.04387"
+				 d="M 0.52202292,6.251575 0.52193499,0.5060963 H 6.2674704 m 8.6317466,5.162e-5 5.745427,-5.162e-5 3.5e-5,5.7454787 m 5.3e-5,8.631767 v 5.745427 h -5.745515 m -8.6317463,8.9e-5 -5.74553571,3.5e-5 3.444e-5,-5.745551" />
+				<rect
+				 style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:1.05833;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+				 width="12.633854"
+				 height="12.236979"
+				 x="4.2664027"
+				 y="4.4490047" />
+			</svg>
+		</div>
+		<div id="all_vids">

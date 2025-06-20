@@ -4,7 +4,7 @@ from PIL import Image
 
 # taking image which user wants 
 # in the QR code center
-Logo_link = '/run/media/alonbr/27a86ff9-c7c2-4a0f-94ef-a88f096e4279/alonbr/T-money-favicon.png'
+Logo_link = ''
 
 logo = Image.open(Logo_link)
 
@@ -22,12 +22,12 @@ QRcode = qrcode.QRCode(
 # taking url or text
 url = '''BEGIN:VCARD
 VERSION:3.0
-N:בן רפאל;אלון
+N:בן רפאל;יפעת
 ORG:
 TITLE:
 ADR:;;;;;
-TEL;CELL:+972506445134
-EMAIL;WORK;INTERNET:<a href='mailto:alonbr@pm.me'>alonbr@pm.me</a>
+TEL;CELL:+972502546440
+EMAIL;WORK;INTERNET:<a href='mailto:yfatb@ariel.ac.il'>yfatb@ariel.ac.il</a>
 END:VCARD'''
 
 # adding URL or text to QRcode
@@ -49,6 +49,6 @@ pos = ((QRimg.size[0] - logo.size[0]) // 2,
 QRimg.paste(logo, pos)
 
 # save the QR code generated
-QRimg.save('ABR_QR.png')
+QRimg.save('YBR_QR.png')
 
 print('QR code generated!')

@@ -1,0 +1,36 @@
+			<div id="Q{str(i+1)}_video" class="modal">
+				<div class="modal-content">
+					<video controls>
+						<source src="vid/{vids[i][0]}" type="video/mp4">
+					</video>
+				</div>
+			</div>
+			<div id="A{str(i+1)}_1_video" class="modal">
+				<div class="modal-content">
+					<video controls>
+						<source src="vid/{vids[i][1]}" type="video/mp4">
+					</video>
+				<svg viewBox="0 0 7.9374998 7.9375">
+						<path
+							 style="fill:#0000ff"
+							 id="path1"
+							 d="M 3.974425,5.4320933 0.36552733,3.4615504 -3.2433701,1.4910075 0.267619,-0.64911804 3.7786079,-2.7892435 3.8765164,1.3214251 Z"
+							 transform="matrix(0.84701854,-0.53429998,0.46278965,0.97789998,2.0571718,4.7465113)" />
+				</svg>
+				</div>
+			</div>
+			<div id="A{str(i+1)}_2_video" class="modal">
+				<div class="modal-content">
+					<video controls>
+						<source src="vid/{vids[i][2]}" type="video/mp4">
+					</video>
+				<svg viewBox="0 0 7.9374998 7.9375">
+						<circle
+							 style="fill:#00ff00"
+							 id="path1"
+							 cx="3.96875"
+							 cy="3.96875"
+							 r="3.96875" />
+				</svg>
+				</div>
+			</div>
