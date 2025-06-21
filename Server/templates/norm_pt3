@@ -74,7 +74,7 @@
 				modal = document.getElementById("Modal_" + id);
 				var span = modal.getElementsByClassName("close")[0];
 				modal.style.display = "block";
-				vid = new Audio("hint/" + id);
+				vid = new Audio("hint/" + elem.getAttribute("fileName"));
 				vid.play();
 				vid.addEventListener('ended',myHandler,false);
 				function myHandler(e) {

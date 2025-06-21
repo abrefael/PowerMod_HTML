@@ -7,25 +7,6 @@
 	<meta property="og:locale" content="he_IL" />
 
 	<style>
-	table {
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-		width: 100%;
-}
-
-td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-}
-
-tr:nth-child(even) {
-	background-color: #dddddd;
-}
-
-textarea{
-	width: 100%;
-}
 	</style>
 	<script>
 	var data={};
@@ -39,35 +20,39 @@ textarea{
 	var j;
 	var folder_path = "resources";
 	var responses = 5;
-	function buildTable(N){
+	function buildTable(n_rows){
 		var tbl_content = '';
 		var tbl = document.getElementById("file_table");
+		const NUMBERING = ['First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth','Ninth','Tenth'];
+		const s_num = ['first','second','third'];
+		N = n_rows;
+		console.log(N);
 		tbl_content += '<tr><colgroup><col span="1" style="width: 30%;"><col span="1" style="width: 25%;"><col span="1" style="width: 45%;"></colgroup><th>Usage</th><th>File name</th><th>Preview</th></tr>';
-		for (i=0; i < N; i++){
+		for (i=0; i < n_rows; i++){
 			let I = String(i+1);
-			tbl_content +='<tr><td>Scene number ' + I + '\'s video file</td>';
+			tbl_content +='<tr><td>' + NUMBERING[i] + ' scene\'s video file</td>';
 			tbl_content +='<td><button onclick="file_select(\'vid\',' + I + ',0)">Select File</button></td>';
 			tbl_content +='<td id="vid_' + I + '_0"></td></tr>';
-			tbl_content +='<tr><td>Scene number ' + I + '\'s image file</td>';
+			tbl_content +='<tr><td>' + NUMBERING[i] + ' scene\'s image file</td>';
 			tbl_content +='<td><button onclick="file_select(\'img\',' + I + ',0)">Select File</button></td>';
 			tbl_content +='<td id="img_' + I + '_0"></td></tr>';
 			for (j=0; j < responses; j++){
 				let J = String(j+1);
 				if (j == 3){
-					tbl_content +='<tr><td>Scene number ' + I + '\'s audio hint</td>';
-					tbl_content +='<td><button onclick="file_select(\'aud\',' + I + ',0)">Select File</button></td>';
+					tbl_content +='<tr><td>' + NUMBERING[i] + ' scene\'s audio hint</td>';
+					tbl_content +='<td id="aud_' + I + '"><button onclick="file_select(\'aud\',' + I + ',0)">Select File</button></td>';
 					tbl_content +='<td><button onclick="playAudio(hints[' + String(i) + '])" type="button">Play Hint</button>';
 					tbl_content +='<button onclick="pauseAudio()" type="button">Pause Hint</button> </td></tr>';
 				}
 				else if (j == 4){
-					tbl_content +='<tr><td>Scene number ' + I + '\'s text hint</td>';
+					tbl_content +='<tr><td>' + NUMBERING[i] + ' scene\'s text hint</td>';
 					tbl_content +='<td colspan="2"><textarea id="text_hint_' + I + '"></textarea></td></tr>';
 				}
 				else{
-					tbl_content +='<tr><td>Scene ' + I + ' response number ' + J + '\'s video file</td>';
+					tbl_content +='<tr><td>' + NUMBERING[i] + ' scene\'s ' + NUMBERING[j].toLowerCase() + ' response\'s video file</td>';
 					tbl_content +='<td><button onclick="file_select(\'vid\',' + I + ',' + J +')">Select File</button></td>';
 					tbl_content +='<td id="vid_' + I + '_' + J + '"></td></tr>';
-					tbl_content +='<tr><td>Scene ' + I + ' response number ' + J + '\'s image file</td>';
+					tbl_content +='<tr><td>' + NUMBERING[i] + ' scene\'s ' + NUMBERING[j].toLowerCase() + ' response\'s image file</td>';
 					tbl_content +='<td><button onclick="file_select(\'img\',' + I + ',' + J +')">Select File</button></td>';
 					tbl_content +='<td id="img_' + I + '_' + J + '"></td></tr>';
 				}
@@ -86,25 +71,39 @@ textarea{
 	</script>
 	</head>
 	<body>
-	
-<input type="radio" id="norm" name="pm_type" value=5>
- <label for="norm">PowerMod</label>
- <input type="radio" id="mini" name="pm_type" value=2>
- <label for="mini">PowerMod mini</label><br><br>
-Enter number of scenerios: <input type="number" id="fname" onchange="buildTable(this.value)" name="num_of_scenes" value=1><br><br><br>
+	<div style="height: 300px; position: relative;">
+		<div style="float: left; position: absolute; bottom: 0;">
+			<input type="radio" id="norm" name="pm_type" value=5>
+			<label for="norm">PowerMod</label>
+			<input type="radio" id="mini" name="pm_type" value=2>
+			<label for="mini">PowerMod mini</label><br><br>
+			Enter number of scenerios: <input type="number" id="fname" onchange="buildTable(this.value)" name="num_of_scenes" value=1><br><br><br>
+		</div>
+		<div style="float: right;">
+			<img src="logo.png"></img>
+		</div>
+</div>
 <table id="file_table">
 
 </table>
 
-Save treatment session data?<br>
-<input type="radio" id="keep" name="keep_data" value='yes'>
- <label for="keep">Yes, please</label>
- <input type="radio" id="not_keep" name="keep_data" value='no'>
- <label for="not_keep">No, thank you</label><br><br>
+<div>
+	<div style="float: left;"><br><br>
+		Save treatment session data?<br>
+		<input type="radio" id="keep" name="keep_data" value='yes'>
+		<label for="keep">Yes, please</label>
+		<input type="radio" id="not_keep" name="keep_data" value='no'>
+		<label for="not_keep">No, thank you</label><br><br><br><br>
+		<button id="data_put" onclick="go();" style="font-size: 24px; font-weight: bold;">Go!</button>
+	</div>
+	<div style="float: right;">
+		Created by Alon Ben Refael<br>
+		<img src="qr.png" style="height: 200px"></img>
+	</div>
+</div>
+<div>
 
-
-<button id="data_put" onclick="go();">Go!</button>
-</form>
+</div>
 <script>
 buildTable(N);
 document.getElementById('norm').checked = true;
@@ -151,6 +150,11 @@ input.onchange = e => {
 	}
 	else {
 		hints[Number(k)-1] = file_path;
+		document.getElementById('aud_' + k).innerHTML = 
+			'<button onclick="file_select(\'aud\',' +
+			k + ',0)">Select File</button> File selected:' + 
+			' <p style="color: blue;">' +
+			 file_path + '</p>'
 	}
 }
 
@@ -191,6 +195,7 @@ function go(){
 		}
 	}
 	data['N'] = N;
+	console.log(N);
 	fetch('http://localhost:8889/data', {
 		method: 'POST',
 		headers: {

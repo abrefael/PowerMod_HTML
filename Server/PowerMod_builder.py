@@ -38,6 +38,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			content_length = int(self.headers['Content-Length'])
 			post_data = self.rfile.read(content_length)
 			data = json.loads(post_data)
+			print("Received JSON:", data)
 			src = os.path.join(os.path.dirname(os.path.realpath(__file__)),'templates')
 			n_or_m = data['m_or_n']
 			cpit(os.path.join(src,n_or_m + '.css'),os.path.join(cwd,'css','powermod.css'))
@@ -49,7 +50,16 @@ class MyHandler(SimpleHTTPRequestHandler):
 			with open(os.path.join(cwd,'scripts','app.js'), 'w',encoding="utf-8") as file:
 				file.write(app_js)
 			pm_html = open(os.path.join(src,'pm_start'), "r").read()
-			N = data['N']
+			N = int(data['N'])
+			for key in data.keys():
+				if 'img' in key:
+					cpit(os.path.join(res,data[key]),os.path.join(cwd,'img',data[key]))
+				elif 'vid' in key:
+					cpit(os.path.join(res,data[key]),os.path.join(cwd,'vid',data[key]))
+				elif 'aud' in key:
+					suff = data[key].split('.')[-1]
+					cpit(os.path.join(res,data[key]),os.path.join(cwd,'hint',key + '.' + suff))
+					data[key] = suff
 			pm_html = pm_html.replace('{(N)}',str(N))
 			for i in range(N):
 				pm_html += open(os.path.join(src,n_or_m + '_pt1'), "r").read()
@@ -68,18 +78,10 @@ class MyHandler(SimpleHTTPRequestHandler):
 				pm_html = pm_html.replace('{pics[i][2]}', data['img_' + str(i+1) + '_2'])
 				if '{pics[i][3]}' in pm_html:
 					pm_html = pm_html.replace('{pics[i][3]}', data['img_' + str(i+1) + '_3'])
-					pm_html = pm_html.replace('hint{str(i+1)}','aud_' + str(i+1) + '_0')
+					pm_html = pm_html.replace('{hints[i]}','aud_' + str(i+1) + '_0.' + data['aud_' + str(i+1) + '_0'])
 			pm_html += open(os.path.join(src,n_or_m + '_pt3'), "r").read()
-			for key in data.keys():
-				if 'img' in key:
-					cpit(os.path.join(res,data[key]),os.path.join(cwd,'img',data[key]))
-				elif 'vid' in key:
-					cpit(os.path.join(res,data[key]),os.path.join(cwd,'vid',data[key]))
-				elif 'aud' in key:
-					cpit(os.path.join(res,data[key]),os.path.join(cwd,'hint',key))
 			with open(os.path.join(cwd, "PowerMod.html"), "w", encoding = "utf-8") as f:
 				f.write(pm_html)
-			print("Received JSON:", data)
 			self.send_response(200)
 			self.send_header('Content-type', 'text/plain')
 			self.end_headers()

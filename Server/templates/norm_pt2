@@ -188,7 +188,7 @@
 		</div>
 		<div class="container">
 			<div class="up">
-				<img src="img/hint.png" id="hint{str(i+1)}" class="show_hint"/>
+				<img src="img/hint.png" id="hint{str(i+1)}" fileName="{hints[i]}" class="show_hint"/>
 				<img src="img/{pics[i][0]}" id="Q{str(i+1)}a" class="Q_img"/>
 				<svg
 					viewBox="0 0 21.166666 21.166667" style="height: 33vh;display:none" class="next_page" id="check{str(i+1)}">
