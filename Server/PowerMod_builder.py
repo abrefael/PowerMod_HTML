@@ -101,7 +101,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-	buildTree(cwd,'resources')
+	os.remove(os.path.join(cwd,resources,'.deme')
 	server_address = ('', 8889)
 	httpd = HTTPServer(server_address, MyHandler)
 	webbrowser.open('http://localhost:8889')
