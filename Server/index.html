@@ -16,7 +16,7 @@
 			<input type="radio" id="mini" name="pm_type" value=2>
 			<label for="mini">PowerMod mini</label><br><br>
 			Enter number of scenerios: 
-			<input type="number" id="fname" onchange="buildTable(this.value)" name="num_of_scenes" value=1>
+			<input type="number" id="fname" onchange="buildTable(this.value)" name="num_of_scenes" value=1 max=10 min=1>
 			<br><br><br>
 		</div>
 		<div class="logo_div">
@@ -29,7 +29,7 @@
 
 <div>
 	<div style="float: left;"><br><br>
-		Save treatment session data?<br>
+		Save therapy session data?<br>
 		<input type="radio" id="keep" name="keep_data" value='yes'>
 		<label for="keep">Yes, please</label>
 		<input type="radio" id="not_keep" name="keep_data" value='no'>

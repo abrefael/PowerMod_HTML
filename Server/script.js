@@ -16,7 +16,6 @@ function buildTable(n_rows){
 	var tbl_content = '';
 	var tbl = document.getElementById("file_table");
 	const NUMBERING = ['First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth','Ninth','Tenth'];
-	const s_num = ['first','second','third'];
 	N = n_rows;
 	console.log(N);
 	tbl_content += '<tr><colgroup><col span="1" style="width: 30%;">' +
@@ -58,7 +57,6 @@ function buildTable(n_rows){
 }
 
 function playAudio(aud_path){
-	console.log(aud_path);
 	audio = new Audio(aud_path);
 	audio.play();
 }
@@ -130,7 +128,6 @@ function go(){
 		}
 	}
 	data['N'] = N;
-	console.log(N);
 	fetch('http://localhost:8889/data', {
 		method: 'POST',
 		headers: {

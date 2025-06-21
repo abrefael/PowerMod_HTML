@@ -25,6 +25,10 @@ class MyHandler(SimpleHTTPRequestHandler):
 				shutil.copy(src, dst)
 			except OSError as error:
 				pass
+		def rep_all(orig,replace_dict):
+			for key in replace_dict.keys():
+				orig = orig.replace(key,replace_dict[key])
+			return orig
 		cwd = os.path.dirname(os.path.realpath(__file__))
 		buildTree(cwd,'Output')
 		res = os.path.join(cwd,'resources')
@@ -63,22 +67,26 @@ class MyHandler(SimpleHTTPRequestHandler):
 			pm_html = pm_html.replace('{(N)}',str(N))
 			for i in range(N):
 				pm_html += open(os.path.join(src,n_or_m + '_pt1'), "r").read()
-				pm_html = pm_html.replace('{str(i+1)}', str(i+1))
-				pm_html = pm_html.replace('{vids[i][0]}', data['vid_' + str(i+1) + '_0'])
-				pm_html = pm_html.replace('{vids[i][1]}', data['vid_' + str(i+1) + '_1'])
-				pm_html = pm_html.replace('{vids[i][2]}', data['vid_' + str(i+1) + '_2'])
+				pm_html = rep_all(pm_html,{'{str(i+1)}':str(i+1),
+					'{vids[i][0]}':data['vid_' + str(i+1) + '_0'],
+					'{vids[i][1]}':data['vid_' + str(i+1) + '_1'],
+					'{vids[i][2]}':data['vid_' + str(i+1) + '_2']
+				})
 				if '{vids[i][3]}' in pm_html:
-					pm_html = pm_html.replace('{vids[i][3]}', data['vid_' + str(i+1) + '_3'])
-					pm_html = pm_html.replace('{hints[i]}', data['text_hint_' + str(i+1)])
+					pm_html = rep_all(pm_html,{'{vids[i][3]}':data['vid_' + str(i+1) + '_3'],
+						'{hints[i]}':data['text_hint_' + str(i+1)]
+					})
 			for i in range(N):
 				pm_html += open(os.path.join(src,n_or_m + '_pt2'), "r").read()
-				pm_html = pm_html.replace('{str(i+1)}', str(i+1))
-				pm_html = pm_html.replace('{pics[i][0]}', data['img_' + str(i+1) + '_0'])
-				pm_html = pm_html.replace('{pics[i][1]}', data['img_' + str(i+1) + '_1'])
-				pm_html = pm_html.replace('{pics[i][2]}', data['img_' + str(i+1) + '_2'])
+				pm_html = rep_all(pm_html,{'{str(i+1)}':str(i+1),
+					'{pics[i][0]}':data['img_' + str(i+1) + '_0'],
+					'{pics[i][1]}':data['img_' + str(i+1) + '_1'],
+					'{pics[i][2]}':data['img_' + str(i+1) + '_2']
+				})
 				if '{pics[i][3]}' in pm_html:
-					pm_html = pm_html.replace('{pics[i][3]}', data['img_' + str(i+1) + '_3'])
-					pm_html = pm_html.replace('{hints[i]}','aud_' + str(i+1) + '_0.' + data['aud_' + str(i+1) + '_0'])
+					pm_html = rep_all(pm_html,{'{pics[i][3]}':data['img_' + str(i+1) + '_3'],
+						'{hints[i]}':'aud_' + str(i+1) + '_0.' + data['aud_' + str(i+1) + '_0']
+					})
 			pm_html += open(os.path.join(src,n_or_m + '_pt3'), "r").read()
 			with open(os.path.join(cwd, "PowerMod.html"), "w", encoding = "utf-8") as f:
 				f.write(pm_html)
