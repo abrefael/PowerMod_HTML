@@ -9,7 +9,7 @@ var results = '';
 var N = 1;
 var i;
 var j;
-var folder_path = "resources";
+var folder_path = "media";
 var responses = 5;
 
 function buildTable(n_rows){
