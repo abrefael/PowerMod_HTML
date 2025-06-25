@@ -50,7 +50,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			cpit(os.path.join(src,'hint.png'),os.path.join(cwd,'img','hint.png'))
 			app_js = open(os.path.join(src,'app.js'), "r").read()
 			if data['keep_data'] == 'yes' :
-				app_js = app_js.replace('//console.save(text', 'console.save(text')
+				app_js = app_js.replace('//downloadData(text', 'console.save(text')
 			with open(os.path.join(cwd,'scripts','app.js'), 'w',encoding="utf-8") as file:
 				file.write(app_js)
 			pm_html = open(os.path.join(src,'pm_start'), "r").read()
