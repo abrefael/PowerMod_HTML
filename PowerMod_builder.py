@@ -31,7 +31,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			return orig
 		cwd = os.path.dirname(os.path.realpath(__file__))
 		buildTree(cwd,'Output')
-		res = os.path.join(cwd,'resources')
+		res = os.path.join(cwd,'media')
 		cwd = os.path.join(cwd,'Output')
 		buildTree(cwd,'css')
 		buildTree(cwd,'img')
@@ -101,7 +101,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-	os.remove(os.path.join(cwd,resources,'.deme')
+	os.remove(os.path.join(cwd,'media','.deme')
 	server_address = ('', 8889)
 	httpd = HTTPServer(server_address, MyHandler)
 	webbrowser.open('http://localhost:8889')
