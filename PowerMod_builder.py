@@ -101,7 +101,10 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-	os.remove(os.path.join(cwd,'media','.deme'))
+	try:
+		os.remove(os.path.join(cwd,'media','.deme'))
+	except OSError:
+		pass
 	server_address = ('', 8889)
 	httpd = HTTPServer(server_address, MyHandler)
 	webbrowser.open('http://localhost:8889')
