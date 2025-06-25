@@ -19,7 +19,7 @@ function next_page(q_or_a){
 		else{
 			text += getNow() + ',completed\\r\\n';
 			console.log(text);
-			//console.save(text,filename);
+			//downloadData(text,filename);
 			location.replace('Done.html');
 		}
 		q++;
@@ -45,6 +45,16 @@ function get_the_date(){
 	return the_date;
 }
 
+
+function downloadData(data, filename) {
+	var element = document.createElement('a');
+	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+	element.setAttribute('download', filename);
+	element.style.display = 'none';
+	document.body.appendChild(element);
+	element.click();
+	document.body.removeChild(element);
+}
 
 (function(console){
 
