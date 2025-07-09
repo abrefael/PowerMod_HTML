@@ -31,7 +31,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			return orig
 		cwd = os.path.dirname(os.path.realpath(__file__))
 		buildTree(cwd,'Output')
-		res = os.path.join(cwd,'media')
+		res = os.path.join(cwd,'HTML','media')
 		cwd = os.path.join(cwd,'Output')
 		buildTree(cwd,'css')
 		buildTree(cwd,'img')
@@ -103,12 +103,12 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
 	try:
-		os.remove(os.path.join(cwd,'media','.deme'))
+		os.remove(os.path.join(cwd,'HTML','media','.deme'))
 	except OSError:
 		pass
 	server_address = ('', 8889)
 	httpd = HTTPServer(server_address, MyHandler)
-	webbrowser.open('http://localhost:8889')
+	webbrowser.open('http://localhost:8889/HTML')
 	print("Serving on port 8889...")
 	httpd.serve_forever()
 
