@@ -6,7 +6,7 @@ import json
 import shutil
 import platform
 import webbrowser
-
+import io
 
 
 def buildTree(parent_dir,chld_dir):
@@ -37,6 +37,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 		buildTree(cwd,'img')
 		buildTree(cwd,'vid')
 		buildTree(cwd,'hint')
+		buildTree(cwd,'done')
 		buildTree(cwd,'scripts')
 		if self.path == '/data':
 			content_length = int(self.headers['Content-Length'])
@@ -46,11 +47,11 @@ class MyHandler(SimpleHTTPRequestHandler):
 			src = os.path.join(os.path.dirname(os.path.realpath(__file__)),'templates')
 			n_or_m = data['m_or_n']
 			cpit(os.path.join(src,n_or_m + '.css'),os.path.join(cwd,'css','powermod.css'))
-			cpit(os.path.join(src,'Done.html'),os.path.join(cwd,'Done.html'))
+			cpit(os.path.join(src,'Done.html'),os.path.join(cwd,'done','Done.html'))
 			cpit(os.path.join(src,'hint.png'),os.path.join(cwd,'img','hint.png'))
-			app_js = open(os.path.join(src,'app.js'), "r").read()
+			app_js = io.open('app.js', mode="r",encoding="utf-8")
 			if data['keep_data'] == 'yes' :
-				app_js = app_js.replace('//downloadData(text', 'downloadData(text')
+				app_js = app_js.replace('//', '')
 			with open(os.path.join(cwd,'scripts','app.js'), 'w',encoding="utf-8") as file:
 				file.write(app_js)
 			pm_html = open(os.path.join(src,'pm_start'), "r").read()

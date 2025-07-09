@@ -30,11 +30,23 @@
 		top: 5%;
 		position: absolute;
 		height: 15%;
-		right: 15%;
+		right: 5%;
 	}
 	video{
-		max-width: 80%;
+		max-width: 100%;
 	}
+	
+	video::-webkit-media-controls-fullscreen-button {
+		display: none;
+	}
+	video::-webkit-media-controls-play-button {}
+	video::-webkit-media-controls-timeline {}
+	video::-webkit-media-controls-current-time-display{}
+	video::-webkit-media-controls-time-remaining-display {}
+	video::-webkit-media-controls-mute-button {}
+	video::-webkit-media-controls-toggle-closed-captions-button {}
+	video::-webkit-media-controls-volume-slider {}
+	
 	.q_page > .container {
 		display: grid;
 		grid-template-rows: 54vh 45vh;
@@ -146,12 +158,6 @@
 		padding-top: 3%;
 		width: 80%;
 		margin: auto;
-	}
-	.modal-content > svg {
-		top: 5%;
-		position: absolute;
-		height: 15%;
-		right: 15%;
 	}
 	.hint_modal {
 		display: none;

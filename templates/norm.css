@@ -30,10 +30,10 @@
 		top: 5%;
 		position: absolute;
 		height: 15%;
-		right: 15%;
+		right: 5%;
 	}
 	video{
-		max-width: 80%;
+		max-width: 100%;
 	}
 	.q_page > .container {
 		display: grid;
@@ -144,12 +144,6 @@
 		padding-top: 3%;
 		width: 80%;
 		margin: auto;
-	}
-	.modal-content > svg {
-		top: 5%;
-		position: absolute;
-		height: 15%;
-		right: 15%;
 	}
 	.hint_modal {
 		display: none;
