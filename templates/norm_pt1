@@ -6,14 +6,14 @@
 			</div>
 			<div id="Q{str(i+1)}_video" class="modal">
 				<div class="modal-content">
-					<video controls>
+					<video class="video-js modal-vid" controls>
 						<source src="vid/{vids[i][0]}" type="video/mp4">
 					</video>
 				</div>
 			</div>
 			<div id="A{str(i+1)}_1_video" class="modal">
 				<div class="modal-content">
-					<video controls>
+					<video class="video-js modal-vid" controls>
 						<source src="vid/{vids[i][1]}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">
@@ -27,7 +27,7 @@
 			</div>
 			<div id="A{str(i+1)}_2_video" class="modal">
 				<div class="modal-content">
-					<video controls>
+					<video class="video-js modal-vid" controls>
 						<source src="vid/{vids[i][2]}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">
@@ -42,7 +42,7 @@
 			</div>
 			<div id="A{str(i+1)}_3_video" class="modal">
 				<div class="modal-content">
-					<video controls>
+					<video class="video-js modal-vid" controls>
 						<source src="vid/{vids[i][3]}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">
