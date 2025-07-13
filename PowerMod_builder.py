@@ -51,6 +51,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			app_js = io.open(os.path.join(src,'app.js'), mode="r",encoding="utf-8").read()
 			if data['keep_data'] == 'yes' :
 				app_js = app_js.replace('//', '')
+				app_js = app_js.replace('{br}', '\\r\\n')
 			with open(os.path.join(cwd,'scripts','app.js'), 'w',encoding="utf-8") as file:
 				file.write(app_js)
 			pm_html = open(os.path.join(src,'pm_start'), "r").read()
@@ -89,7 +90,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 					})
 			pm_html += open(os.path.join(src,n_or_m + '_pt3'), "r").read()
 			with open(os.path.join(cwd, "PowerMod.html"), "w", encoding = "utf-8") as f:
-				f.write(pm_html)
+				f.write(pm_html.replace('{br}', '\\r\\n'))
 			self.send_response(200)
 			self.send_header('Content-type', 'text/plain')
 			self.end_headers()
