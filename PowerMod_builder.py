@@ -20,11 +20,16 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 class MyHandler(SimpleHTTPRequestHandler):
 	def do_POST(self):
-		def cpit(src,dst):
+		def cpit(src_lst,dst_lst):
 			try:
-				shutil.copy(src, dst)
-			except OSError as error:
-				pass
+				src = os.path.join(*src_lst)
+				dst = os.path.join(*dst_lst)
+				shutil.copytree(src, dst)
+			except OSError as err:
+				if err.errno == errno.ENOTDIR:
+					shutil.copy(src, dst)
+				else:
+					pass
 		def rep_all(orig,replace_dict):
 			for key in replace_dict.keys():
 				orig = orig.replace(key,replace_dict[key])
@@ -46,9 +51,10 @@ class MyHandler(SimpleHTTPRequestHandler):
 			print("Received JSON:", data)
 			src = os.path.join(os.path.dirname(os.path.realpath(__file__)),'templates')
 			n_or_m = data['m_or_n']
-			cpit(os.path.join(src,n_or_m + '.css'),os.path.join(cwd,'css','powermod.css'))
-			cpit(os.path.join(src,'Done.html'),os.path.join(cwd,'done','Done.html'))
-			cpit(os.path.join(src,'hint.png'),os.path.join(cwd,'img','hint.png'))
+			cpit([src,n_or_m + '.css'],[cwd,'css','powermod.css'])
+			cpit([src,'Done.html'],[cwd,'done','Done.html'])
+			cpit([src,'hint.png'],[cwd,'img','hint.png'])
+			cpit([src,'video-js-8.23.3'],[cwd,'scripts','video-js-8.23.3'])
 			app_js = io.open(os.path.join(src,'app.js'), mode="r",encoding="utf-8").read()
 			if data['keep_data'] == 'yes' :
 				app_js = app_js.replace('//', '')
@@ -58,12 +64,12 @@ class MyHandler(SimpleHTTPRequestHandler):
 			N = int(data['N'])
 			for key in data.keys():
 				if 'img' in key:
-					cpit(os.path.join(res,data[key]),os.path.join(cwd,'img',data[key]))
+					cpit([res,data[key]],[cwd,'img',data[key]])
 				elif 'vid' in key:
-					cpit(os.path.join(res,data[key]),os.path.join(cwd,'vid',data[key]))
+					cpit([res,data[key]],[cwd,'vid',data[key]])
 				elif 'aud' in key:
 					suff = data[key].split('.')[-1]
-					cpit(os.path.join(res,data[key]),os.path.join(cwd,'hint',key + '.' + suff))
+					cpit([res,data[key]],[cwd,'hint',key + '.' + suff])
 					data[key] = suff
 			pm_html = pm_html.replace('{(N)}',str(N))
 			for i in range(N):
