@@ -22,8 +22,8 @@ class MyHandler(SimpleHTTPRequestHandler):
 	def do_POST(self):
 		def cpit(src_lst,dst_lst):
 			try:
-				src = os.path.join(*src_lst)
-				dst = os.path.join(*dst_lst)
+				src = os.path.join(*src_lst) # * expands the list into parameters
+				dst = os.path.join(*dst_lst) # * expands the list into parameters
 				shutil.copytree(src, dst)
 			except OSError as err:
 				if err.errno == errno.ENOTDIR:
