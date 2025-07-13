@@ -5,21 +5,21 @@ var filename;
 function get_participant_num(){
 	//text = prompt("אנא הכניסו שם/מספר משתתף");
 	//filename = text + '.csv';
-	text += ',' + get_the_date() + '\\r\\n';
+	text += ',' + get_the_date() + '\r\n';
 }
 
 function next_page(q_or_a){
 	answers=[];
 	document.getElementById('page_' + q + q_or_a).remove();
-	text += getNow() + ',clicked next screen\\r\\n';
+	text += getNow() + ',clicked next screen\r\n';
 	if (q_or_a == 'a') {
 		if (q < N){
 			q_or_a = 'q';
 		}
 		else{
-			text += getNow() + ',completed\\r\\n';
+			text += getNow() + ',completed\r\n';
 			//downloadData(text,filename);
-			location.replace('/done/Done.html');
+			location.replace('done/Done.html');
 		}
 		q++;
 	}
@@ -34,7 +34,7 @@ function choose_answer(elem){
 		images[i].style.borderColor = "#000000";
 	}
 	elem.style.borderColor = "#ff0000";
-	text += getNow() + ',' + elem.id + "selected\\r\\n";
+	text += getNow() + ',' + elem.id + "selected\r\n";
 	document.getElementById("check" + q).style.display = 'block';
 }
 
