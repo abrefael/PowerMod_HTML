@@ -19,12 +19,11 @@ function next_page(q_or_a){
 		else{
 			text += getNow() + ',completed{br}';
 			//downloadData(text,filename);
-			if (window.navigator.userAgent.indexOf("Win") != -1) {
-				location.replace('/done/Done.html');
-			}
-			else {
+			if (window.navigator.userAgent.indexOf("Win") == -1) {
 				location.replace('done/Done.html');
+				return;
 			}
+			location.replace('done/Done.html');
 		}
 		q++;
 	}
