@@ -4,7 +4,6 @@ import os
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 import json
 import shutil
-import platform
 import webbrowser
 import io
 
