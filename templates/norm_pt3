@@ -4,7 +4,7 @@
 			var modal;
 			function show_modal(elem){
 				var id = elem.id.slice(0, -1) + "_video";
-				text += getNow() + ',' + id + '\r\n';
+				text += getNow() + ',' + id + '{br}';
 				modal = document.getElementById(id);
 				if (!(answers.includes(id))){
 					answers.push(id);
@@ -16,7 +16,7 @@
 				vid.addEventListener('ended',myHandler,false);
 				function myHandler(e) {
 					modal.style.display = "none";
-					text += getNow() + ',' + id + ' ended\r\n';
+					text += getNow() + ',' + id + ' ended{br}';
 					if ((elem.id.slice(-1)) == 'q' && (answers.length >= 4)){
 						next_page('q');
 					}
@@ -25,7 +25,7 @@
 					if (event.target == modal) {
 						modal.style.display = "none";
 						vid.pause();
-						text += getNow() + ',' + id + ' paused\r\n';
+						text += getNow() + ',' + id + ' paused{br}';
 					}
 				}
 			}
@@ -65,12 +65,12 @@
 					e.stopPropagation();
 					modal.style.display = "none";
 					vid.pause();
-					text += getNow() + ',paused by clicking X\r\n';
+					text += getNow() + ',paused by clicking X{br}';
 				});
 				}
 			function show_hint(elem){
 				var id = elem.id;
-				text += getNow() + ',' + id + '\r\n';
+				text += getNow() + ',' + id + '{br}';
 				modal = document.getElementById("Modal_" + id);
 				var span = modal.getElementsByClassName("close")[0];
 				modal.style.display = "block";
@@ -79,13 +79,13 @@
 				vid.addEventListener('ended',myHandler,false);
 				function myHandler(e) {
 					modal.style.display = "none";
-					text += getNow() + ',' + id + ' ended\r\n';
+					text += getNow() + ',' + id + ' ended{br}';
 				}
 				window.onclick = function(event) {
 					if (event.target == modal) {
 						modal.style.display = "none";
 						vid.pause();
-						text += getNow() + ',' + id + ' paused\r\n';
+						text += getNow() + ',' + id + ' paused{br}';
 					}
 				}
 			}
