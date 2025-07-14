@@ -16,12 +16,12 @@
  3. Prerecorded videos for the Video Modeling therapy: one problem video and three solution videos for each scenario. Only `.mp4`, `webm`, `3gp` or `ogg` files are applicable!
  4. One repeseting image for each video. Only `png`, `jpg`, `jpeg`, `gif`, `webp`, or `bmp` files are applicable!
  5. One `.txt` file and one audio file for the clue in each scenario. Only `mp3`, `opus`, `ogg`, `aac`, or `flac` audio files are applicable!
- 6. All files should be placed in `media` subfolder which is inside `HTML` folder in this folder.
+ 6. All files should be placed in `Put_Media_Files_in_Here` folder.
 
 # Usage
  1. double click `PowerMod_builder.py`.
  2. Select number of scenerios and type of activity (normal or minimal).
- 3. Add files according to the list in you web browser. Don't forget to select files from the aforementioned `media` folder. You will have visual feedback that you selected the right file from the correct path.
+ 3. Add files according to the list in you web browser. Don't forget to select files from the aforementioned `Put_Media_Files_in_Here` folder. You will have visual feedback that you selected the right file from the correct path.
  4. Write the text hints into their respected places.
  5. When ready, select whether or not you wish to save data from your sessions, and click the "*Go!*" button.
  6. The process will be done within a few seconds, and you will see the entire PowerMod HTML tree inside newly created `Output` folder.
