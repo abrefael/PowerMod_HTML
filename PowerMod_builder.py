@@ -48,6 +48,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			cpit(os.path.join(src,n_or_m + '.css'),os.path.join(cwd,'css','powermod.css'))
 			cpit(os.path.join(src,'Done.html'),os.path.join(cwd,'done','Done.html'))
 			cpit(os.path.join(src,'hint.png'),os.path.join(cwd,'img','hint.png'))
+			cpit([src,'video-js-8.23.3'],[cwd,'scripts','video-js-8.23.3'])
 			app_js = io.open(os.path.join(src,'app.js'), mode="r",encoding="utf-8").read()
 			if data['keep_data'] == 'yes' :
 				app_js = app_js.replace('//', '')
