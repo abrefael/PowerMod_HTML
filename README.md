@@ -12,7 +12,7 @@
 
 # Prerequisites
  1. Windows10 or above, Linux or Mac.
- 2. Python 3.10 or above.
+ 2. [Python 3.10](https://www.python.org/) or above.
  3. Prerecorded videos for the Video Modeling therapy: one problem video and three solution videos for each scenario. Only `.mp4`, `webm`, `3gp` or `ogg` files are applicable!
  4. One repeseting image for each video. Only `png`, `jpg`, `jpeg`, `gif`, `webp`, or `bmp` files are applicable!
  5. One `.txt` file and one audio file for the clue in each scenario. Only `mp3`, `opus`, `ogg`, `aac`, or `flac` audio files are applicable!
