@@ -20,22 +20,21 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 class MyHandler(SimpleHTTPRequestHandler):
 	def do_POST(self):
 		def cpit(src_lst,dst_lst):
+			src = os.path.join(*src_lst) # * expands the list into parameters
+			dst = os.path.join(*dst_lst) # * expands the list into parameters
 			try:
-				src = os.path.join(*src_lst) # * expands the list into parameters
-				dst = os.path.join(*dst_lst) # * expands the list into parameters
 				shutil.copytree(src, dst)
-			except OSError as err:
-				if err.errno == errno.ENOTDIR:
-					shutil.copy(src, dst)
-				else:
-					pass
+			except NotADirectoryError:
+				shutil.copy(src, dst)
+			except Exception as e:
+				print(f"Something went wrong: {e}")
 		def rep_all(orig,replace_dict):
 			for key in replace_dict.keys():
 				orig = orig.replace(key,replace_dict[key])
 			return orig
 		cwd = os.path.dirname(os.path.realpath(__file__))
 		buildTree(cwd,'Output')
-		res = os.path.join(cwd,'HTML','media')
+		res = os.path.join(cwd,'Put_Media_Files_in_Here')
 		cwd = os.path.join(cwd,'Output')
 		buildTree(cwd,'css')
 		buildTree(cwd,'img')
@@ -48,7 +47,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 			post_data = self.rfile.read(content_length)
 			data = json.loads(post_data)
 			print("Received JSON:", data)
-			src = os.path.join(os.path.dirname(os.path.realpath(__file__)),'templates')
+			src = os.path.join(os.path.dirname(os.path.realpath(__file__)),'.templates')
 			n_or_m = data['m_or_n']
 			cpit([src,n_or_m + '.css'],[cwd,'css','powermod.css'])
 			cpit([src,'Done.html'],[cwd,'done','Done.html'])
@@ -109,12 +108,12 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
 	try:
-		os.remove(os.path.join(cwd,'HTML','media','.deme'))
+		os.remove(os.path.join(cwd,'Put_Media_Files_in_Here','.deme'))
 	except OSError:
 		pass
 	server_address = ('', 8889)
 	httpd = HTTPServer(server_address, MyHandler)
-	webbrowser.open('http://localhost:8889/HTML')
+	webbrowser.open('http://localhost:8889/.HTML')
 	print("Serving on port 8889...")
 	httpd.serve_forever()
 

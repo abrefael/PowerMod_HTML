@@ -9,7 +9,7 @@ var results = '';
 var N = 1;
 var i;
 var j;
-var folder_path = "media";
+var folder_path = "http://localhost:8889/Put_Media_Files_in_Here/";
 var responses = 5;
 
 function buildTable(n_rows){
@@ -82,7 +82,7 @@ function file_select(f_tp,k,n) {
 	input.type = 'file';
 	input.onchange = e => {
 		var file = e.target.files[0];
-		var file_path = folder_path + '/' + file.name;
+		var file_path = folder_path + file.name;
 		data[f_tp + '_' + k + '_' + n] = file.name;
 		var x;
 		if (f_tp == 'vid'){
