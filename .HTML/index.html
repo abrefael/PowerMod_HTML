@@ -1,0 +1,73 @@
+	<!DOCTYPE html>
+<html class="no_js">
+<head>
+	<link rel="stylesheet" type="text/css" href="res/style.css">
+	<meta charset="utf-8" />
+	<link href="res/favicon.ico" rel="icon">
+	<title>PowerMod Builder</title>
+	<script src="res/script.js"></script>
+	</head>
+	<body>
+	<div id="head">
+		<div id="selection_div">
+		<h1>PowerMod Builder</h1>
+			<input type="radio" id="norm" name="pm_type" value=5>
+			<label for="norm">PowerMod</label>
+			<input type="radio" id="mini" name="pm_type" value=2>
+			<label for="mini">PowerMod mini</label><br><br>
+			Enter number of scenerios: 
+			<input type="number" id="fname" onchange="buildTable(this.value)" name="num_of_scenes" value=1 max=10 min=1>
+			<br><br><br>
+		</div>
+		<div class="logo_div">
+			<img src="res/logo.png"></img>
+		</div>
+</div>
+<table id="file_table">
+
+</table>
+
+<div>
+	<div style="float: left;"><br><br>
+		Save therapy session data?<br>
+		<input type="radio" id="keep" name="keep_data" value='yes'>
+		<label for="keep">Yes, please</label>
+		<input type="radio" id="not_keep" name="keep_data" value='no'>
+		<label for="not_keep">No, thank you</label><br><br><br><br>
+		<button id="data_put" onclick="go();">Go!</button>
+	</div>
+	<div class="logo_div">
+		Created by Alon Ben Refael<br>
+		<img src="res/qr.png" ></img>
+	</div>
+</div>
+<div>
+
+</div>
+<script>
+buildTable(N);
+document.getElementById('norm').checked = true;
+document.getElementById('keep').checked = true;
+let pm_type = document.getElementsByName('pm_type');
+for (match in pm_type) {
+	pm_type[match].onchange = function() {
+		responses = this.value;
+		if (responses == 2){
+			data['m_or_n'] = 'mini';
+		}
+		else if (responses == 5){
+			data['m_or_n'] = 'norm';
+		}
+		buildTable(document.getElementById('fname').value);
+	}
+}
+
+let keep_data = document.getElementsByName('keep_data');
+for (match in keep_data) {
+	keep_data[match].onchange = function() {
+		data['keep_data'] = this.value;
+	}
+}
+</script>
+</body>
+</html>

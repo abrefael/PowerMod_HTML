@@ -1,0 +1,49 @@
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+}
+
+td, th {
+	border: 1px solid #F7BFBE;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #F7BFBE;
+}
+
+textarea{
+	width: 100%;
+}
+
+#head{
+	height: 210px;
+	position: relative;
+}
+
+#selection_div{
+	float: left;
+	position: absolute;
+	bottom: 0;
+}
+
+.logo_div{
+	float: right;
+
+	img{
+		height: 200px;
+	}
+}
+
+
+h1{
+	color: #016420ff;
+	font-weight: bold;
+}
+
+#data_put{
+	font-size: 24px;
+	font-weight: bold;
+}
