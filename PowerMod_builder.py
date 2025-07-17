@@ -20,8 +20,8 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 class MyHandler(SimpleHTTPRequestHandler):
 	def do_POST(self):
 		def cpit(src_lst,dst_lst):
-			src = os.path.join(*src_lst) # * expands the list into parameters
-			dst = os.path.join(*dst_lst) # * expands the list into parameters
+			src = os.path.join(*src_lst)
+			dst = os.path.join(*dst_lst)
 			try:
 				shutil.copytree(src, dst)
 			except NotADirectoryError:
