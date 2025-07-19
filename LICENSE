@@ -22,6 +22,29 @@ SOFTWARE.
 
 
 
+---
+
+This software package (standalone_win version) redistributes a portion of the WinPython distribution,
+specifically the embedded Python interpreter and standard library located in the `python/` directory.
+
+WinPython is licensed under the following terms:
+
+WinPython © 2012–2023 WinPython Developers
+https://winpython.github.io/
+
+WinPython includes components licensed under multiple open-source licenses,
+including but not limited to the Python Software Foundation License (PSFL),
+MIT License, BSD License, and others.
+
+By including the `python/` directory from WinPython, we acknowledge and comply with
+the licenses of these upstream components. For detailed licensing information,
+please refer to:
+
+- https://github.com/winpython/winpython/blob/master/LICENSE.txt
+- https://github.com/winpython/winpython/wiki/License-Information
+
+If you are redistributing this package, you must also comply with those licenses.
+
 This project includes third-party software:
 
 Video.js is licensed under the Apache License, Version 2.0. Copyright Brightcove, Inc.
