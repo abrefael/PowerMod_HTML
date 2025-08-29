@@ -94,6 +94,7 @@
 				document.body.requestFullscreen();
 				next_page('a');
 			});
+
 			document.querySelectorAll('.modal-vid').forEach((videoElement) => {
 				videojs(videoElement, {
 					controls: true,
@@ -102,6 +103,7 @@
 					}
 				});
 			});
+
 		</script>
 	</body>
 </html>
