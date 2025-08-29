@@ -94,14 +94,16 @@
 				document.body.requestFullscreen();
 				next_page('a');
 			});
-//			document.querySelectorAll('.modal-vid').forEach((videoElement) => {
-//				videojs(videoElement, {
-//					controls: true,
-//					controlBar: {
-//						fullscreenToggle: false
-//					}
-//				});
-//			});
+
+			document.querySelectorAll('.modal-vid').forEach((videoElement) => {
+				videojs(videoElement, {
+					controls: true,
+					controlBar: {
+						fullscreenToggle: false
+					}
+				});
+			});
+
 		</script>
 	</body>
 </html>
