@@ -9,17 +9,17 @@
  In order to perform the intervention, the content of the folder should be placed on any computer. Double clicking `PowerMod.html` will open a web browser and will allow you to perform the intervention.
 
  Important: Do not use MS Edge for the intervention!
-
+ 
 # Prerequisites
  1. Windows10 or above, Linux or Mac.
- 2. [Python 3.10](https://www.python.org/) or above.
+ 2. For Linux\Mac, [Python 3.10](https://www.python.org/) or above.
  3. Prerecorded videos for the Video Modeling therapy: one problem video and three solution videos for each scenario. Only `.mp4`, `webm`, `3gp` or `ogg` files are applicable!
  4. One repeseting image for each video. Only `png`, `jpg`, `jpeg`, `gif`, `webp`, or `bmp` files are applicable!
  5. One `.txt` file and one audio file for the clue in each scenario. Only `mp3`, `opus`, `ogg`, `aac`, or `flac` audio files are applicable!
  6. All files should be placed in `Put_Media_Files_in_Here` folder.
 
 # Usage
- 1. double click `PowerMod_builder.py`.
+ 1. Under Windows, double click 🎬Start Here🎬. Under Linux\Mac, run `PowerMod_builder.py`.
  2. Select number of scenerios and type of activity (normal or minimal).
  3. Add files according to the list in you web browser. Don't forget to select files from the aforementioned `Put_Media_Files_in_Here` folder. You will have visual feedback that you selected the right file from the correct path.
  4. Write the text hints into their respected places.
