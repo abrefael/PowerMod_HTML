@@ -94,6 +94,7 @@
 				document.body.requestFullscreen();
 				next_page('a');
 			});
+<<<<<<< Updated upstream
 
 			document.querySelectorAll('.modal-vid').forEach((videoElement) => {
 				videojs(videoElement, {
@@ -104,6 +105,16 @@
 				});
 			});
 
+=======
+//			document.querySelectorAll('.modal-vid').forEach((videoElement) => {
+//				videojs(videoElement, {
+//					controls: true,
+//					controlBar: {
+//						fullscreenToggle: false
+//					}
+//				});
+//			});
+>>>>>>> Stashed changes
 		</script>
 	</body>
 </html>

@@ -13,7 +13,11 @@
 			</div>
 			<div id="A{str(i+1)}_1_video" class="modal">
 				<div class="modal-content">
+<<<<<<< Updated upstream
 					<video class="video-js modal-vid" controls>
+=======
+					<video class="video-js modal-vid" data-setup='{"controlBar": {"fullscreenToggle": false,"pictureInPictureToggle": false}}' controls>
+>>>>>>> Stashed changes
 						<source src="vid/{vids[i][1]}" type="video/mp4">
 					</video>
 				<svg viewBox="0 0 7.9374998 7.9375">

@@ -19,6 +19,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 class MyHandler(SimpleHTTPRequestHandler):
 	def do_POST(self):
+<<<<<<< Updated upstream
 		def cpit(src_lst,dst_lst):
 			src = os.path.join(*src_lst)
 			dst = os.path.join(*dst_lst)
@@ -28,14 +29,46 @@ class MyHandler(SimpleHTTPRequestHandler):
 				shutil.copy(src, dst)
 			except Exception as e:
 				print(f"Something went wrong: {e}")
+=======
+		import sys
+		from pathlib import Path
+		def cpit(src: str | Path, dst: str | Path) -> None:
+			src_path = Path(src).expanduser()
+			dst_path = Path(dst).expanduser()
+			if not src_path.exists():
+				raise FileNotFoundError(f"Source does not exist: {src_path}")
+			if src_path.is_file():
+				shutil.copy2(src_path, dst_path)
+				print(f"{src_path} copied to {dst_path}")
+				return
+			try:
+				shutil.copytree(
+					src_path,
+					dst_path,
+					dirs_exist_ok=True,
+					copy_function=shutil.copy  # NOT copy2
+				)
+				print(f"{src_path} copied to {dst_path}")
+			except PermissionError:
+				cmd = f'robocopy "{src_path}" "{dst_path}" /E /COPY:DAT /R:1 /W:1'
+				code = os.system(cmd)
+				if code >= 8:
+					raise PermissionError(f"robocopy failed with exit code {code}")
+>>>>>>> Stashed changes
 		def rep_all(orig,replace_dict):
 			for key in replace_dict.keys():
 				orig = orig.replace(key,replace_dict[key])
 			return orig
 		cwd = os.path.dirname(os.path.realpath(__file__))
+<<<<<<< Updated upstream
 		buildTree(cwd,'Output')
 		res = os.path.join(cwd,'Put_Media_Files_in_Here')
 		cwd = os.path.join(cwd,'Output')
+=======
+		buildTree(cwd,'Play')
+		res = os.path.join(cwd,'Put_Media_Files_in_Here')
+		cwd = os.path.join(cwd,'Play')
+>>>>>>> Stashed changes
 		buildTree(cwd,'css')
 		buildTree(cwd,'img')
 		buildTree(cwd,'vid')
@@ -49,10 +82,17 @@ class MyHandler(SimpleHTTPRequestHandler):
 			print("Received JSON:", data)
 			src = os.path.join(os.path.dirname(os.path.realpath(__file__)),'.templates')
 			n_or_m = data['m_or_n']
+<<<<<<< Updated upstream
 			cpit([src,n_or_m + '.css'],[cwd,'css','powermod.css'])
 			cpit([src,'Done.html'],[cwd,'done','Done.html'])
 			cpit([src,'hint.png'],[cwd,'img','hint.png'])
 			cpit([src,'video-js-8.23.3'],[cwd,'scripts','video-js-8.23.3'])
+=======
+			cpit(os.path.join(src,n_or_m + '.css'),os.path.join(cwd,'css','powermod.css'))
+			cpit(os.path.join(src,'Done.html'),os.path.join(cwd,'done','Done.html'))
+			cpit(os.path.join(src,'hint.png'),os.path.join(cwd,'img','hint.png'))
+			cpit(os.path.join(src,'video-js-8.23.3'),os.path.join(cwd,'scripts','video-js-8.23.3'))
+>>>>>>> Stashed changes
 			app_js = io.open(os.path.join(src,'app.js'), mode="r",encoding="utf-8").read()
 			if data['keep_data'] == 'yes' :
 				app_js = app_js.replace('//', '')
