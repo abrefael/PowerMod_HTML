@@ -22,8 +22,6 @@ SOFTWARE.
 
 
 
-<<<<<<< Updated upstream
-=======
 This project includes third-party software:
 
 Video.js is licensed under the Apache License, Version 2.0. Copyright Brightcove, Inc.
@@ -41,7 +39,6 @@ Video.js is licensed under the Apache License, Version 2.0. Copyright Brightcove
    limitations under the License.
 
 
->>>>>>> Stashed changes
 ---
 
 This software package (standalone_win version) redistributes a portion of the WinPython distribution,

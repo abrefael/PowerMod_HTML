@@ -9,7 +9,7 @@ var results = '';
 var N = 1;
 var i;
 var j;
-var folder_path = "http://localhost:8889/Put_Media_Files_in_Here/";
+var folder_path = "http://localhost:8889/1.📥Put_Media_Files_in_Here/";
 var responses = 5;
 
 function buildTable(n_rows){
