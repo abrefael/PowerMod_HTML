@@ -48,9 +48,9 @@ class MyHandler(SimpleHTTPRequestHandler):
 				orig = orig.replace(key,replace_dict[key])
 			return orig
 		cwd = os.path.dirname(os.path.realpath(__file__))
-		buildTree(cwd,'🎞️Play')
+		buildTree(cwd,'3.🎞️Play')
 		res = os.path.join(cwd,'1.📥Put_Media_Files_in_Here')
-		cwd = os.path.join(cwd,'🎞️Play')
+		cwd = os.path.join(cwd,'3.🎞️Play')
 		buildTree(cwd,'css')
 		buildTree(cwd,'img')
 		buildTree(cwd,'vid')
